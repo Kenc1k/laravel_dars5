@@ -13,7 +13,7 @@ class UniversityController extends Controller
      */
     public function index()
     {
-        $universities = University::all();
+        $universities = University::with('faculties')->get();
         return view('university.index' , compact('universities'));
     }
 

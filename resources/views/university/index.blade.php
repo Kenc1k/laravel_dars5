@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 
 @section('content')
     <div class="container">
@@ -29,4 +29,25 @@
             </tbody>
         </table>
     </div>
+@endsection --}}
+
+@extends('layouts.main')
+
+@section('content')
+    <div class="container">
+        <h1>Universities and Faculties</h1>
+        
+        @foreach ($universities as $university)
+            <h2>{{ $university->name }}</h2>
+            <p>Location: {{ $university->location }}</p>
+
+            <h3>Faculties:</h3>
+            <ul>
+                @foreach ($university->faculties as $faculty)
+                    <li>{{ $faculty->name }}</li>
+                @endforeach
+            </ul>
+        @endforeach
+    </div>
 @endsection
+

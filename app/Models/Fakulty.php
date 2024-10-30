@@ -13,4 +13,9 @@ class Fakulty extends Model
         'name',
         'university_id',
     ];
+
+    public function university()
+    {
+        return $this->belongsTo(University::class);
+    }
 }

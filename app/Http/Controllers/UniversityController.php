@@ -13,9 +13,23 @@ class UniversityController extends Controller
      */
     public function index()
     {
-        $universities = University::with('faculties')->get();
-        return view('university.index' , compact('universities'));
+        $universities = University::select('universities.id', 'universities.name')
+            ->leftJoin('fakulties', 'fakulties.university_id', '=', 'universities.id')
+            ->leftJoin('yunalishes', 'yunalishes.faculty_id', '=', 'fakulties.id')
+            ->leftJoin('guruxes', 'guruxes.yunalish_id', '=', 'yunalishes.id')
+            ->leftJoin('talabas', 'talabas.gurux_id', '=', 'guruxes.id')
+            ->groupBy('universities.id', 'universities.name')
+            ->selectRaw('
+                count(distinct fakulties.id) as f_count,
+                count(distinct yunalishes.id) as y_count,
+                count(distinct guruxes.id) as g_count,
+                count(distinct talabas.id) as t_count
+            ')
+            ->get();
+    
+        return view('university.index', compact('universities'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

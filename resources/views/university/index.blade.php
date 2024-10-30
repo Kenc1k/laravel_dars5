@@ -1,4 +1,4 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
@@ -10,10 +10,11 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Delete</th>
-                    <th>Update</th>
+                    <th>Universitet</th>
+                    <th>Fakultet</th>
+                    <th>Yunalish</th>
+                    <th>Gurux</th>
+                    <th>Talaba</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,17 +22,21 @@
                     <tr>
                         <td>{{ $university->id }}</td>
                         <td>{{ $university->name }}</td>
-                        <td>{{ $university->location }}</td>
-                        <td><a href="#" class="btn btn-danger">Delete</a></td>
-                        <td><a href="#" class="btn btn-success">Update</a></td>
+                        <td>{{ $university->f_count }}</td>
+                        <td>{{ $university->y_count }}</td>
+                        <td>{{ $university->g_count }}</td>
+                        <td>{{ $university->t_count }}</td>
+                        {{-- <td><a href="#" class="btn btn-danger">Delete</a></td> --}}
+                        {{-- <td><a href="#" class="btn btn-success">Update</a></td> --}}
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-@endsection --}}
+@endsection
 
-@extends('layouts.main')
+
+{{-- @extends('layouts.main')
 
 @section('content')
     <div class="container">
@@ -49,5 +54,8 @@
             </ul>
         @endforeach
     </div>
-@endsection
+@endsection --}}
+
+
+
 

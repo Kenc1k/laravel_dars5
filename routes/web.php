@@ -13,6 +13,9 @@ Route::get('/' , [UniversityController::class, 'index']);
 
 
 Route::get('/faculty', [FakultyController::class, 'index']);
+// Route::get('/faculty_create' , [FakultyController::class , 'create']);
+// Route::get('/faculty' , [FakultyController::class , 'store']);
+
 
 Route::get('/kurs' , [KursController::class, 'index']);
 

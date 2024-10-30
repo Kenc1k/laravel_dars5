@@ -15,4 +15,5 @@ class Gurux extends Model
         'name',
         'kurs_id',
     ];
+
 }

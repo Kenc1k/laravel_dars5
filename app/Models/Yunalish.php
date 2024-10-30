@@ -13,4 +13,9 @@ class Yunalish extends Model
         'name',
         'fakulty_id',
     ];
+
+    public function faculty()
+    {
+        return $this->belongsTo(Fakulty::class);
+    }
 }

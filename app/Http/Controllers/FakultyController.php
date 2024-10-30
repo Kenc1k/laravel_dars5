@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFakultyRequest;
 use App\Http\Requests\UpdateFakultyRequest;
 use App\Models\Fakulty;
+use App\Models\University;
+use Illuminate\Http\Request;
 
 class FakultyController extends Controller
 {
@@ -23,15 +25,26 @@ class FakultyController extends Controller
      */
     public function create()
     {
-        //
+        $universities = University::all();
+        return view('fakulty.index' , compact('universities'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFakultyRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'university_id' => 'required|exists:universities,id',
+        ]);
+
+        Fakulty::create([
+            'name' => $request->name,
+            'university_id' => $request->university_id,
+        ]);
+
+        return redirect()->route('faculties.create')->with('success', 'Faculty added successfully.');
     }
 
     /**

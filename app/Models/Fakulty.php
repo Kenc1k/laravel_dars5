@@ -18,4 +18,9 @@ class Fakulty extends Model
     {
         return $this->belongsTo(University::class);
     }
+
+    public function yunalish()
+    {
+        return $this->hasMany(Yunalish::class);
+    }
 }
